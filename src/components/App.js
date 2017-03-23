@@ -1,16 +1,13 @@
 import React from 'react'
-import NameDisplayContainer from '../containers/NameDisplayContainer'
-import NameInput from '../containers/NameInput'
-import NumberContainer from '../containers/NumberContainer'
+import Header from './Header'
 
-export default () => {
-    return (
-        <div>
-            <NameDisplayContainer />
-            <NameInput />
-            <br />
-            <br />
-            <NumberContainer />
-        </div>
-    )
-}
+export default React.createClass({
+    render() {
+        return (
+            <div>
+                <Header />
+                <hr />
+            </div>
+        )
+    }
+})

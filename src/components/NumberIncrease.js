@@ -7,12 +7,12 @@ export default class NumberIncrease extends Component {
 
         return (
             <div>
-                <p>Aktuálisan: {number}</p>
+                <p>Our number: {number}</p>
                 <form onSubmit={e => {
                     e.preventDefault()
                     dispatch(incNum())
                 }}>
-                    <input type="submit" value="Növeljük!" />
+                    <input type="submit" value="Let's Increase!" />
                 </form>
             </div>
         )
