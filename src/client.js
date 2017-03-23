@@ -20,8 +20,6 @@ const middleware = routerMiddleware(history)
 
 const store = createStore(probaApp, preloadedState, applyMiddleware(middleware))
 
-//const store = createStore(probaApp, preloadedState)
-
 render(
     <Provider store={store}>
         <BrowserRouter history={history}>

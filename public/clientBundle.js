@@ -27816,8 +27816,6 @@ var middleware = (0, _reactRouterRedux.routerMiddleware)(history);
 
 var store = (0, _redux.createStore)(_reducers2.default, preloadedState, (0, _redux.applyMiddleware)(middleware));
 
-//const store = createStore(probaApp, preloadedState)
-
 (0, _reactDom.render)(_react2.default.createElement(
     _reactRedux.Provider,
     { store: store },

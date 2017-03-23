@@ -1,18 +1,18 @@
 var webpack = require('webpack');
 
 module.exports = {
-    /*
+    
     entry: './src/client.js',
     output: {
         path: __dirname + '/public/',
         filename: 'clientBundle.js'
-    },*/
-    entry: './src/server.js',
+    },
+    /*entry: './src/server.js',
     output: {
         path: __dirname,
         filename: 'bundle.js'
     },
-    target: 'node',
+    target: 'node',*/
     module: {
         rules: [
             {
