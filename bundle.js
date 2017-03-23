@@ -61070,7 +61070,7 @@ function handleRender(req, res) {
     var preloadedState = store.getState();
     res.send(renderFullPage(html, preloadedState));
 }
-//
+
 function renderFullPage(html, preloadedState) {
     return '\n        <!doctype html>\n        <html>\n            <head>\n                <title>Isomorphic Example - ELTE IK</title>\n            </head>\n            <body>\n                <div id="root">' + html + '</div>\n                <script>\n                window.__PRELOADED_STATE__ = ' + JSON.stringify(preloadedState).replace(/</g, '\\u003c') + '\n                </script>\n                <script src="/static/clientBundle.js"></script>\n            </body>\n        </html>\n    ';
 }

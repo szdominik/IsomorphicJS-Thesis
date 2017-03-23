@@ -10693,6 +10693,7 @@ var NameInput = function (_Component) {
                             return;
                         } else {
                             _this2.props.dispatch((0, _actions.logName)(input.value));
+                            input.value = '';
                         }
                     } },
                 _react2.default.createElement('input', { type: 'text', placeholder: 'What\'s Your Name?',

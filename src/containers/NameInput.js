@@ -13,11 +13,12 @@ class NameInput extends Component {
                     return
                 } else {
                     this.props.dispatch(logName(input.value))
+                    input.value = ''
                 }
             }}>
                 <input type="text" placeholder="What's Your Name?"
                     ref={node => { input = node }} />
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Say Hello!" />
             </form>
         )
     }

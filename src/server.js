@@ -38,7 +38,7 @@ function handleRender(req, res) {
     const preloadedState = store.getState()
     res.send(renderFullPage(html, preloadedState))
 }
-//
+
 function renderFullPage(html, preloadedState) {
     return `
         <!doctype html>
