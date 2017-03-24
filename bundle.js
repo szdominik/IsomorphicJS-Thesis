@@ -64542,7 +64542,7 @@ server.use('/static', _express2.default.static('public'));
 
 server.use(handleRender);
 
-var preState = {};
+//var preState = {}
 
 function processReqForState(req, store) {
     switch (req.url) {
@@ -64556,7 +64556,8 @@ function processReqForState(req, store) {
 function handleRender(req, res) {
     var history = (0, _createMemoryHistory2.default)();
     var middleware = (0, _reactRouterRedux.routerMiddleware)(history);
-    var store = (0, _redux.createStore)(_reducers2.default, preState, (0, _redux.applyMiddleware)(middleware));
+    var store = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(middleware));
+    //const store = createStore(probaApp, preState, applyMiddleware(middleware))
     processReqForState(req, store);
     var context = {};
     var html = (0, _server.renderToString)(_react2.default.createElement(
@@ -64574,8 +64575,9 @@ function handleRender(req, res) {
             )
         )
     ));
-    preState = store.getState();
-    res.send(renderFullPage(html, preState));
+    //preState = store.getState()
+    //res.send(renderFullPage(html, preState))
+    res.send(renderFullPage(html, store.getState()));
 }
 
 function renderFullPage(html, preloadedState) {
