@@ -14,18 +14,32 @@ import probaApp from './reducers'
 import Header from './components/Header'
 import SayHello from './components/SayHello'
 import NumberContainer from './containers/NumberContainer'
+import { logName, incNum } from './actions'
 
 var server = express();
 server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true }));
 
 server.use('/static', express.static('public'))
 
 server.use(handleRender)
 
+function processReqForState(req, store) {
+    switch (req.url) {
+        case '/sayHello':
+            if(req.method === 'POST') 
+                store.dispatch(logName(req.body.name))
+        case '/incNum':
+            if(req.method === 'POST')
+                store.dispatch(incNum())
+    }
+}
+
 function handleRender(req, res) {
     const history = createHistory()
     const middleware = routerMiddleware(history)
     const store = createStore(probaApp, applyMiddleware(middleware))
+    processReqForState(req, store)
     const context = {}
     const html = renderToString(
         <Provider store={store}>
@@ -38,8 +52,7 @@ function handleRender(req, res) {
             </StaticRouter>
         </Provider>
     )
-    const preloadedState = store.getState()
-    res.send(renderFullPage(html, preloadedState))
+    res.send(renderFullPage(html, store.getState()))
 }
 
 function renderFullPage(html, preloadedState) {

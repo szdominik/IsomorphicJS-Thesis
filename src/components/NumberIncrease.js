@@ -11,7 +11,7 @@ export default class NumberIncrease extends Component {
                 <form onSubmit={e => {
                     e.preventDefault()
                     dispatch(incNum())
-                }}>
+                }} action="/incNum" method="POST">
                     <input type="submit" value="Let's Increase!" />
                 </form>
             </div>

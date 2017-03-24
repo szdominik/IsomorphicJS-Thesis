@@ -12109,7 +12109,7 @@ var NumberIncrease = function (_Component) {
                     { onSubmit: function onSubmit(e) {
                             e.preventDefault();
                             dispatch((0, _actions.incNum)());
-                        } },
+                        }, action: '/incNum', method: 'POST' },
                     _react2.default.createElement('input', { type: 'submit', value: 'Let\'s Increase!' })
                 )
             );
@@ -12215,8 +12215,8 @@ var NameInput = function (_Component) {
                             _this2.props.dispatch((0, _actions.logName)(input.value));
                             input.value = '';
                         }
-                    } },
-                _react2.default.createElement('input', { type: 'text', placeholder: 'What\'s Your Name?',
+                    }, action: '/sayHello', method: 'POST' },
+                _react2.default.createElement('input', { type: 'text', name: 'name', placeholder: 'What\'s Your Name?',
                     ref: function ref(node) {
                         input = node;
                     } }),
