@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 import express from 'express'
 import bodyParser from 'body-parser'
 import React from 'react'
