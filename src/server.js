@@ -24,7 +24,7 @@ server.use('/static', express.static('public'))
 
 server.use(handleRender)
 
-//var preState = {}
+var preState = {}
 
 function processReqForState(req, store) {
     switch (req.url) {
@@ -40,8 +40,7 @@ function processReqForState(req, store) {
 function handleRender(req, res) {
     const history = createHistory()
     const middleware = routerMiddleware(history)
-    const store = createStore(probaApp, applyMiddleware(middleware))
-    //const store = createStore(probaApp, preState, applyMiddleware(middleware))
+    const store = createStore(probaApp, preState, applyMiddleware(middleware))
     processReqForState(req, store)
     const context = {}
     const html = renderToString(
@@ -55,9 +54,8 @@ function handleRender(req, res) {
             </StaticRouter>
         </Provider>
     )
-    //preState = store.getState()
-    //res.send(renderFullPage(html, preState))
-    res.send(renderFullPage(html, store.getState()))
+    preState = store.getState()
+    res.send(renderFullPage(html, preState))
 }
 
 function renderFullPage(html, preloadedState) {
