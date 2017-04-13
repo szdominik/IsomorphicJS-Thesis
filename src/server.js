@@ -16,9 +16,9 @@ import SayHello from './components/SayHello'
 import NumberContainer from './containers/NumberContainer'
 import { logName, incNum } from './actions'
 
-var server = express();
-server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: true }));
+var server = express()
+server.use(bodyParser.json())
+server.use(bodyParser.urlencoded({ extended: true }))
 
 server.use('/static', express.static('public'))
 

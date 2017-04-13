@@ -8,7 +8,7 @@ class NumberIncButton extends Component {
             <form onSubmit={e => {
                 e.preventDefault()
                 this.props.dispatch(incNum())
-            }}>
+            }} action="/incNum" method="POST">
                 <input type="submit" value="Let's Increase!" />
             </form>
         )
